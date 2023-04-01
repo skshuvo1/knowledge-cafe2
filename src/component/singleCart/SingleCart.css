@@ -1,12 +1,14 @@
-.main-container{
+/* .main-container{
     display: grid;
     grid-template-columns: 4fr 1fr;
-}
+    gap: 10px;
+} */
 .cart{
-    height: 50%;
+    
     width: 60%;
     margin-left:19%;
-    margin-bottom:10%
+
+    
     
 }
 .name-container img{
@@ -17,11 +19,13 @@
 .author-image img{
     border-radius: 50%;
 }
-.title h2 , .beginner, a{
+.title h2 , .beginner, .mark{
     float: left;
 }
 
-.title{
+
+/* .title{
     white-space: pre-wrap;
-}
+} */
+
 
