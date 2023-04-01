@@ -10,11 +10,7 @@ const SingleCart = (props) => {
 const {picture, name, authorImg, time, title} = props.cart;
 const timeAddeded = props.timeAddeded; 
   
-// let sum = 0;
-//         for(){
-//             sum = sum + cart.time;
-//             console.log(cart.time)
-//         }
+
     return (
            
             <div className='cart'>
@@ -31,7 +27,7 @@ const timeAddeded = props.timeAddeded;
                     </div>
                     <div className="bookmark">
                         <p>{time} min read 
-                        <button onClick={() => timeAddeded(props.cart)}><FontAwesomeIcon icon={faBookmark} /></button>
+                        <button onClick={() => timeAddeded(props.cart)} className = "border border-none"><FontAwesomeIcon icon={faBookmark} /></button>
                         </p>
                     </div>
                 </div>
@@ -39,7 +35,7 @@ const timeAddeded = props.timeAddeded;
                 <div className="title mt-3">
                     <h2>{title}</h2>
 
-                    <button onClick={() =>timeAddeded(props.cart)} className='mark border border-none'>
+                    <button onClick={() =>timeAddeded(props.cart)} className='mark border border-none bg-white'>
                     <a href="#">Mark as read</a>
                     </button>
 

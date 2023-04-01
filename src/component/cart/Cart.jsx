@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SingleCart from '../singleCart/SingleCart';
 import './Cart.css';
+import SideCart from '../sideCart/SideCart';
 
 
 const Cart = () => {
@@ -24,7 +25,7 @@ const Cart = () => {
        
     }
     return (
-        <div className='main-container'>
+        <div className='main-container row cols-sm-1 cols-md-1 cols-lg-2'>
 
             <div>
             {
@@ -32,15 +33,15 @@ const Cart = () => {
                     cart = {cart}
                     key = {cart.id}
                     timeAddeded = {timeAddeded}
+                    
             
                     >
                            
                     </SingleCart>)
             }
             </div>
-            <div className="side-ber bg-secondary-subtle me-3 p-3 h-25">
-                <h3>Spent time on read:{}</h3>
-                <h3>Bookmarked Blogs: {bookmark.length}</h3>
+            <div className="side-ber me-3 p-3 h-25">
+               <SideCart bookmark = {bookmark}></SideCart>
                 </div>
         </div>
     );

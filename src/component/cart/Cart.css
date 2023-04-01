@@ -3,3 +3,6 @@
     grid-template-columns: 4fr 1fr;
     gap: 20px;
 }
+.side-ber{
+    background-color: rgb(217, 218, 220);
+}
