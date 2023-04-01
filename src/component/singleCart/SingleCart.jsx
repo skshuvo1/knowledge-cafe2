@@ -1,12 +1,20 @@
 import React from 'react';
 import './SingleCart.css'
 // import Side from '../sidebar/Side';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const SingleCart = (props) => {
+    // console.log(props)
 const {picture, name, authorImg, time, title} = props.cart;
-const timeAddeded = props.timeAddeded;   
-
+const timeAddeded = props.timeAddeded; 
+  
+// let sum = 0;
+//         for(){
+//             sum = sum + cart.time;
+//             console.log(cart.time)
+//         }
     return (
            
             <div className='cart'>
@@ -22,14 +30,16 @@ const timeAddeded = props.timeAddeded;
                         </div>
                     </div>
                     <div className="bookmark">
-                        <p>{time} min read</p>
+                        <p>{time} min read 
+                        <button onClick={() => timeAddeded(props.cart)}><FontAwesomeIcon icon={faBookmark} /></button>
+                        </p>
                     </div>
                 </div>
 
                 <div className="title mt-3">
                     <h2>{title}</h2>
 
-                    <button onClick={() => {timeAddeded(props.cart)}} className='mark border border-none'>
+                    <button onClick={() =>timeAddeded(props.cart)} className='mark border border-none'>
                     <a href="#">Mark as read</a>
                     </button>
 
