@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SingleCart from '../singleCart/SingleCart';
 import './Cart.css';
 import SideCart from '../sideCart/SideCart';
+import ListHeader from '../listHeader/ListHeader';
 
 
 const Cart = () => {
@@ -26,24 +27,28 @@ const Cart = () => {
     const handleBookmark = (lengths) => {
         const newBookmark = [...bookmark, lengths]
         setBookmark(newBookmark)
-        const previousName = localStorage.getItem('name')
-        // console.log(previousName);
+
+        const previousName = localStorage.getItem('name');
+        
         if(previousName){
             const setName = previousName +" " +lengths.name;
             localStorage.setItem('name', setName)
             setWatchName(setName)
             
+            
         }
         else{
             localStorage.setItem('name',lengths.name );
             setWatchName(lengths.name)
+           
         }
+        
     }
     
     return (
 
     
-        <div className='main-container row cols-sm-1 cols-md-1 cols-lg-2'>
+        <div className='main-container row cols-sm-1 cols-md-1 cols-lg-2 mx-4'>
 
             <div>
             {
@@ -57,9 +62,14 @@ const Cart = () => {
             }
             
             </div>
+            <div className='side-menu-ber'>
+            <div className='me-3'>
+            <ListHeader times = {times} ></ListHeader>
+            </div>
             <div className="side-ber me-3 p-3 h-25">
-               <SideCart bookmark = {bookmark} times = {times} watchName = {watchName}></SideCart>
+               <SideCart bookmark = {bookmark} watchName = {watchName}></SideCart>
                 </div>
+            </div>
         </div>
     );
         };

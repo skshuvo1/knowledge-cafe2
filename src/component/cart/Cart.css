@@ -5,5 +5,9 @@
 }
 .side-ber{
     background-color: rgb(217, 218, 220);
-    position: sticky;
+    border-radius: 10px;
+}
+.side-menu-ber{
+    width:350px;
+    position:sticky;
 }
