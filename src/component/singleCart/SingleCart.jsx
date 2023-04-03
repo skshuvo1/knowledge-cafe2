@@ -1,14 +1,15 @@
 import React from 'react';
 import './SingleCart.css'
-// import Side from '../sidebar/Side';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const SingleCart = (props) => {
-    // console.log(props)
 const {picture, name, authorImg, time, title} = props.cart;
-const timeAddeded = props.timeAddeded; 
+const handleTotalTime = props.handleTotalTime;
+const handleBookmark =props.handleBookmark;
+// console.log(handleTotalTime);
+
   
 
     return (
@@ -27,7 +28,7 @@ const timeAddeded = props.timeAddeded;
                     </div>
                     <div className="bookmark">
                         <p>{time} min read 
-                        <button onClick={() => timeAddeded(props.cart)} className = "border border-none"><FontAwesomeIcon icon={faBookmark} /></button>
+                        <button onClick={() => handleBookmark(props.cart)} className = "border border-none"><FontAwesomeIcon icon={faBookmark} /></button>
                         </p>
                     </div>
                 </div>
@@ -35,7 +36,7 @@ const timeAddeded = props.timeAddeded;
                 <div className="title mt-3">
                     <h2>{title}</h2>
 
-                    <button onClick={() =>timeAddeded(props.cart)} className='mark border border-none bg-white'>
+                    <button onClick={() =>handleTotalTime(props.cart)} className='mark border border-none bg-white'>
                     <a href="#">Mark as read</a>
                     </button>
 

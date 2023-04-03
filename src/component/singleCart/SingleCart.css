@@ -7,9 +7,7 @@
     
     width: 60%;
     margin-left:19%;
-
-    
-    
+   
 }
 .name-container img{
     height: 80px;
@@ -22,10 +20,5 @@
 .title h2 , .beginner, .mark{
     float: left;
 }
-
-
-/* .title{
-    white-space: pre-wrap;
-} */
 
 

@@ -7,6 +7,9 @@ import SideCart from '../sideCart/SideCart';
 const Cart = () => {
     const [carts, setCart] = useState([])
     const [bookmark, setBookmark] = useState([])
+    const [times, setTimes] = useState([])
+    // console.log(bookmark);
+    
     
 
     useEffect(() => {
@@ -17,14 +20,29 @@ const Cart = () => {
     },[])
 
     
-    const timeAddeded = (cart) => {
-        const newCart = [...bookmark, cart];
-        setBookmark(newCart)
-        // console.log(cart)
-        
-       
+    const handleTotalTime = (cart) => {
+        const newTime = [...times, cart.time];
+        setTimes(newTime)
     }
+
+    const handleBookmark = (lengths) => {
+        const newBookmark = [...bookmark, lengths]
+        setBookmark(newBookmark)
+        const previousName = localStorage.getItem('name')
+        // console.log(previousName);
+        if(previousName){
+            const setName = JSON.stringify(previousName + ', ' +lengths.name)
+            localStorage.setItem('name', setName)
+            
+        }
+        else{
+            localStorage.setItem('name',lengths.name )
+        }
+    }
+    
     return (
+
+    
         <div className='main-container row cols-sm-1 cols-md-1 cols-lg-2'>
 
             <div>
@@ -32,16 +50,15 @@ const Cart = () => {
                 carts.map(cart => <SingleCart 
                     cart = {cart}
                     key = {cart.id}
-                    timeAddeded = {timeAddeded}
-                    
-            
+                    handleTotalTime = {handleTotalTime}
+                    handleBookmark = {handleBookmark}
                     >
-                           
-                    </SingleCart>)
+                   </SingleCart>)
             }
+            
             </div>
             <div className="side-ber me-3 p-3 h-25">
-               <SideCart bookmark = {bookmark}></SideCart>
+               <SideCart bookmark = {bookmark} times = {times}></SideCart>
                 </div>
         </div>
     );
