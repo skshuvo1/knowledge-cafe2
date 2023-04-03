@@ -8,10 +8,8 @@ const Cart = () => {
     const [carts, setCart] = useState([])
     const [bookmark, setBookmark] = useState([])
     const [times, setTimes] = useState([])
-    // console.log(bookmark);
-    
-    
-
+    const [watchName, setWatchName] = useState([])
+   
     useEffect(() => {
 
         fetch('data.json')
@@ -31,12 +29,14 @@ const Cart = () => {
         const previousName = localStorage.getItem('name')
         // console.log(previousName);
         if(previousName){
-            const setName = JSON.stringify(previousName + ', ' +lengths.name)
+            const setName = previousName +" " +lengths.name;
             localStorage.setItem('name', setName)
+            setWatchName(setName)
             
         }
         else{
-            localStorage.setItem('name',lengths.name )
+            localStorage.setItem('name',lengths.name );
+            setWatchName(lengths.name)
         }
     }
     
@@ -58,7 +58,7 @@ const Cart = () => {
             
             </div>
             <div className="side-ber me-3 p-3 h-25">
-               <SideCart bookmark = {bookmark} times = {times}></SideCart>
+               <SideCart bookmark = {bookmark} times = {times} watchName = {watchName}></SideCart>
                 </div>
         </div>
     );
