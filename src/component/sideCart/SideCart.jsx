@@ -5,7 +5,6 @@ import Storage from '../storage/Storage';
 
 const SideCart = ({bookmark, watchName}) => {
     const [name, setName] = useState(watchName);
-
     useEffect(() => {
         const getName = localStorage.getItem('name');
         setName(getName);
@@ -19,6 +18,7 @@ const SideCart = ({bookmark, watchName}) => {
             
              <h4>Bookmarked Blogs: {bookmark.length}</h4>
              <div>
+              
              {name}
              </div>
             

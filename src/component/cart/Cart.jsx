@@ -10,15 +10,15 @@ const Cart = () => {
     const [bookmark, setBookmark] = useState([])
     const [times, setTimes] = useState([])
     const [watchName, setWatchName] = useState([])
-   
+
     useEffect(() => {
 
         fetch('data.json')
-        .then(res => res.json())
-        .then(data => setCart(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setCart(data))
+    }, [])
 
-    
+
     const handleTotalTime = (cart) => {
         const newTime = [...times, cart.time];
         setTimes(newTime)
@@ -29,49 +29,48 @@ const Cart = () => {
         setBookmark(newBookmark)
 
         const previousName = localStorage.getItem('name');
-        
-        if(previousName){
-            const setName = previousName +" " +lengths.name;
+
+        if (previousName) {
+            const setName = previousName + " " + lengths.name;
             localStorage.setItem('name', setName)
             setWatchName(setName)
-            
-            
+
+
         }
-        else{
-            localStorage.setItem('name',lengths.name );
+        else {
+            localStorage.setItem('name', lengths.name);
             setWatchName(lengths.name)
-           
+
         }
-        
+
     }
-    
+
     return (
 
-    
-        <div className='main-container row cols-sm-1 cols-md-1 cols-lg-2 mx-4'>
-
-            <div>
-            {
-                carts.map(cart => <SingleCart 
-                    cart = {cart}
-                    key = {cart.id}
-                    handleTotalTime = {handleTotalTime}
-                    handleBookmark = {handleBookmark}
+        <div className='row main-container'>
+            <div className=''>
+                {
+                    carts.map(cart => <SingleCart
+                        cart={cart}
+                        key={cart.id}
+                        handleTotalTime={handleTotalTime}
+                        handleBookmark={handleBookmark}
                     >
-                   </SingleCart>)
-            }
-            
+                    </SingleCart>)
+                }
+
             </div>
             <div className='side-menu-ber'>
-            <div className='me-3'>
-            <ListHeader times = {times} ></ListHeader>
-            </div>
-            <div className="side-ber me-3 p-3 h-25">
-               <SideCart bookmark = {bookmark} watchName = {watchName}></SideCart>
+                <div className='me-3'>
+                    <ListHeader times={times} ></ListHeader>
+                </div>
+                <div className="side-ber me-3 p-3 h-25">
+                    <SideCart bookmark={bookmark} watchName={watchName}></SideCart>
                 </div>
             </div>
         </div>
+
     );
-        };
+};
 
 export default Cart;

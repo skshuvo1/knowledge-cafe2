@@ -1,12 +1,9 @@
-/* .main-container{
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 10px;
-} */
+
 .cart{
     
     width: 60%;
     margin-left:19%;
+
    
 }
 .name-container img{
@@ -19,6 +16,9 @@
 }
 .title h2 , .beginner, .mark{
     float: left;
+}
+.main-img{
+    height: 350px;
 }
 
 

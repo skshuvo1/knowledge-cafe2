@@ -15,7 +15,7 @@ const handleBookmark =props.handleBookmark;
     return (
            
             <div className='cart'>
-                <img className='rounded w-100 mt-5' src={picture} alt="" />
+                <img className='main-img rounded w-100 mt-5' src={picture} alt="" />
                 <div className="name-container d-flex justify-content-between mt-3">
                     <div className='d-flex'>
                         <div className='author-image'>
@@ -27,8 +27,8 @@ const handleBookmark =props.handleBookmark;
                         </div>
                     </div>
                     <div className="bookmark">
-                        <p>{time} min read 
-                        <button onClick={() => handleBookmark(props.cart)} className = "border border-none"><FontAwesomeIcon icon={faBookmark} /></button>
+                        <p>{time} min read   
+                        <button onClick={() => handleBookmark(props.cart)} className = "border border-none bg-white"><FontAwesomeIcon icon={faBookmark} /></button>
                         </p>
                     </div>
                 </div>
